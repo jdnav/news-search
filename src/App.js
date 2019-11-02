@@ -13,30 +13,33 @@ class App extends Component {
     this.getNews();
   }
 
-  getNews = async (category = 'general') => {
+  getNews = async (category = "general") => {
     const API_KEY = "1144f0714b214488a81cb9054747ed8f";
     const url =
-      "https://newsapi.org/v2/top-headlines?country=us&" +
+      "https://newsapi.org/v2/top-headlines?country=gb&category=" +
       category +
-      "=business&apiKey=" +
+      "&apiKey=" +
       API_KEY;
 
     const response = await fetch(url);
     const news = await response.json();
 
-    this.setState({
-      news: news.articles
-    },() => {
-      console.log('new state');
-      
-    });
+    this.setState(
+      {
+        news: news.articles
+      },
+      () => {
+        console.log("new state");
+        console.log(this.state.news);
+      }
+    );
   };
 
   render() {
     return (
       <Fragment>
         <Header title="React News API" />
-        <div className="container white contenedor-noticias">
+        <div className="container white news-container">
           <Form getNews={this.getNews} />
           <NewsList newsList={this.state.news} />
         </div>

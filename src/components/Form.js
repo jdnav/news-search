@@ -38,7 +38,7 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-    getNews: propTypes.func.isRequired
+    getNews: PropTypes.func.isRequired
 }
 
 export default Form;
