@@ -13,10 +13,12 @@ class App extends Component {
     this.getNews();
   }
 
-  getNews = async (category = "general") => {
+  getNews = async (category = "general", country = "gb") => {
     const API_KEY = "1144f0714b214488a81cb9054747ed8f";
     const url =
-      "https://newsapi.org/v2/top-headlines?country=gb&category=" +
+      "https://newsapi.org/v2/top-headlines?country=" +
+      country +
+      "&category=" +
       category +
       "&apiKey=" +
       API_KEY;
@@ -29,7 +31,7 @@ class App extends Component {
         news: news.articles
       },
       () => {
-        console.log("new state");
+        console.log("new selection");
         console.log(this.state.news);
       }
     );

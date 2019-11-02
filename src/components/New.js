@@ -27,7 +27,7 @@ const New = ({ newItem }) => {
             target="_blank" rel="noopener noreferrer"
             className="waves-effect waves-light btn"
           >
-            Go to new
+            Read more
           </a>
         </div>
       </div>
