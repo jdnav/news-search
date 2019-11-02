@@ -1,3 +1,14 @@
+## Projec info
+
+This project uses https://newsapi.org/ to fetch relevant news from different categories and countries.
+The user can filter news in real time.
+
+## Technological Scope
+
+This project uses classes, stateless functional components, state and async functions to fetch data.
+
+## General info
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
