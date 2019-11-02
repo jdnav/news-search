@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Header from "./components/Header";
 import NewsList from "./components/NewsList";
+import Form from "./components/Form";
 
 class App extends Component {
   state = {
@@ -12,10 +13,12 @@ class App extends Component {
     this.getNews();
   }
 
-  getNews = async () => {
+  getNews = async (category = 'general') => {
     const API_KEY = "1144f0714b214488a81cb9054747ed8f";
     const url =
-      "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=" +
+      "https://newsapi.org/v2/top-headlines?country=us&" +
+      category +
+      "=business&apiKey=" +
       API_KEY;
 
     const response = await fetch(url);
@@ -23,6 +26,9 @@ class App extends Component {
 
     this.setState({
       news: news.articles
+    },() => {
+      console.log('new state');
+      
     });
   };
 
@@ -31,8 +37,8 @@ class App extends Component {
       <Fragment>
         <Header title="React News API" />
         <div className="container white contenedor-noticias">
-
-          <NewsList newsList={this.state.news}/>
+          <Form getNews={this.getNews} />
+          <NewsList newsList={this.state.news} />
         </div>
       </Fragment>
     );

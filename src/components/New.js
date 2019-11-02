@@ -23,7 +23,7 @@ const New = ({ newItem }) => {
         <div className="card-action">
           <a
             href={url}
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             className="waves-effect waves-light btn"
           >
             Go to new
